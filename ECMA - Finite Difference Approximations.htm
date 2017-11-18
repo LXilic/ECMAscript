@@ -1,0 +1,49 @@
+<html>
+<body>
+<script type="text/javascript"> 
+// the first statement needs to assign values to variables   
+var x=6, h=.01;   
+// the second statement must define the function f(x)   
+function f(x){return  Math.log(5*Math.pow(Math.sin(x),2)+2)};   // ln(5(sin(x))^2 + 2)+2)   
+// create a useful function that lets you write stuff out   
+function pr(x){document.write(x,"<br>")};   
+// now comes your program - you should print the assignment number and your name   
+pr("<b></b>"); 
+   
+pr("Engr 190 Assignment one - Finite difference approximations by Aleksandar Ilic");   
+
+pr("<b></b>"); 
+   
+pr("For x="+x+"  The value of f(x) is: "+f(x));   
+// extra stuff to help you debug the program 
+pr("<b></b>"); 
+     
+pr("<b>First Derivatives:</b>");
+pr("<b></b>");  
+pr(" Forward of error [O(h)] is: "+((f(x+h)-f(x))/(h)));  
+pr(" Forward of error [O(h2)] is: "+((-f(x+2*h)+4*f(x+h)-3*f(x))/(2*h)));
+
+pr(" Central of error [O(h2)] is: "+((f(x+h)-f(x-h))/(2*h)));  
+pr(" Central of error [O(h4)] is: "+((-f(x+2*h)+8*f(x+h)-8*f(x-h)+f(x-2*h))/(12*h)));  
+
+pr(" Backward of error [O(h)] is: "+((f(x)-f(x-h))/(h)));  
+pr(" Backward of error [O(h2)] is: "+((3*f(x)-4*f(x-h)+f(x-2*h))/(2*h)));  
+
+
+
+pr(""); pr("<b>Second Derivatives:</b>"); 
+pr("<b></b>"); 
+   
+pr(" Forward of error [O(h)] is: "+((f(x+2*h)-2*f(x+h)+f(x))/(h*h))); 
+pr(" Forward of error [O(h2)] is: "+((-f(x+3*h)+4*f(x+2*h)-5*f(x+h)+2*f(x))/(Math.pow(h, 2))));  
+
+pr(" Central of error [O(h2)] is: "+((f(x+h)-2*f(x)+f(x-h))/(h*h)));  
+pr(" Central of error [O(h4)] is: "+((-f(x+2*h)+16*f(x+h)-30*f(x)+16*f(x-h)-f(x-2*h))/(12*Math.pow(h, 2))));  
+
+pr(" Backward of error [O(h)] is: "+((f(x)-2*f(x-h)+f(x-2*h))/(Math.pow(h, 2))));  
+pr(" Backward of error [O(h2)] is: "+((2*f(x)-5*f(x-h)+4*f(x-2*h)-f(x-3*h))/(Math.pow(h, 2)))); 
+
+  
+// not a bad idea to have a print statement at the end of the program to make sure your program ran correctly   
+pr(""); pr("<b>End of Assignment 1</b>"); 
+ </script></body></html>
